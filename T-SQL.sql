@@ -42,7 +42,7 @@ BEGIN
  END
  */
  --return
- declare @contador int = 0
+/* declare @contador int = 0
 
  while @contador <=10
  BEGIN 
@@ -62,4 +62,22 @@ BEGIN
  print('soy otra consulta')
  print('yo tambien')
 
- 
+ */
+
+ --CASE 
+
+ Declare @valor int 
+ declare @resultado char(10)=''
+ set @valor = 10
+
+ set @resultado = (CASE WHEN @valor = 10 then 'ROJO'
+						WHEN @valor =20 THEN 'MORADO'
+						WHEN @valor = 30 THEN 'AMARILLO'
+						ELSE 'AZUL'
+						END)
+PRINT @resultado
+
+select * , (CASE WHEN disponibilidad = 1 then 'VERDE'
+               WHEN disponibilidad = 0 then 'ROJO'
+			   ELSE 'NEGRO' END) AS INDICADOR
+			   FROM inventario
